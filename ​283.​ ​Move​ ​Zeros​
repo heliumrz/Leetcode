@@ -1,0 +1,13 @@
+class Solution {
+    public void moveZeroes(int[] nums) {
+        for(int nzCount = 0, i = 0; i < nums.length; i++){
+            if(nums[i] != 0){
+              //swap non-zero numbers with the previous pointed zero
+                int temp = nums[nzCount];
+                nums[nzCount] = nums[i];
+                nums[i] = temp;
+                nzCount++;  
+            } 
+        };
+    }
+}

@@ -1,0 +1,35 @@
+class Solution {
+    public int[] twoSum(int[] nums, int target) {
+        
+        for (int i=0; i<nums.length; i++){
+            for (int j= i+1; j < nums.length; j++){
+                
+                if (nums[i] == target - nums[j])
+                    return new int[]{i, j};
+            }
+                
+        }
+        throw new IllegalArgumentException("No solution");
+    }
+}
+
+/*optimized solution using hashmap*/
+class Solution {
+    public int[] twoSum(int[] nums, int target) {
+        
+        HashMap<Integer, Integer> imap = new HashMap<>();
+        for (int i=0; i<nums.length; i++){
+            int comp = target - nums[i];
+            if(!imap.containsKey(comp)){
+                imap.put(nums[i], i);
+            }
+            else if(comp == nums[i]){
+                return new int[]{imap.get(comp), i};
+            }
+            else{
+                return new int[]{imap.get(comp), i};
+            }
+        }
+        throw new IllegalArgumentException("no solution"); 
+    }
+}

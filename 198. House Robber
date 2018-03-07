@@ -1,0 +1,13 @@
+class Solution {
+    public int rob(int[] nums) {
+        int robbed = 0, notRobbed = 0;
+        for(int i = 0; i < nums.length; i++){
+            //if rob this house
+            int robbing = notRobbed + nums[i];
+            //if not rob this house
+            notRobbed = Math.max(robbed, notRobbed);
+            robbed = robbing;
+        }
+        return(Math.max(robbed, notRobbed));
+    }
+}

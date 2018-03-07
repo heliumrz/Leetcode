@@ -20,7 +20,7 @@ class Solution {
         HashMap<Integer, Integer> imap = new HashMap<>();
         for (int i=0; i<nums.length; i++){
             int comp = target - nums[i];
-            if(!imap.containsKey(comp)){
+            if(imap.get(comp) == null){
                 imap.put(nums[i], i);
             }
             else if(comp == nums[i]){

@@ -1,0 +1,28 @@
+class Solution {
+    public int romanToInt(String s) {
+        Map<Character, Integer> myMap = new HashMap<>();
+        
+        myMap.put('I', 1);
+            myMap.put('V', 5);
+            myMap.put('X', 10);
+            myMap.put('L', 50);
+            myMap.put('C', 100);
+            myMap.put('D', 500);
+            myMap.put('M', 1000);
+        
+        int sum = 0;
+        for (int i=0; i<s.length()-1; i++){
+            int curr = myMap.get(s.charAt(i));
+            int next = myMap.get(s.charAt(i+1));
+            if(curr < next){
+                sum -= curr;
+            }
+            else{
+                sum += curr;
+            }
+        }
+        sum += myMap.get(s.charAt(s.length()-1));
+        return sum;
+        
+    }
+}

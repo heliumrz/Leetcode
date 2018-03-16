@@ -1,0 +1,13 @@
+class Solution {
+    public int hammingDistance(int x, int y) {
+        // XOR to get all the different positions
+        int diff = x^y;
+        int counter = 0;
+        while(diff > 0){
+            //change the most right 1 to 0 each time
+            diff &= diff - 1;
+            counter++;
+        }
+        return counter;
+    }
+}

@@ -1,0 +1,15 @@
+class Solution {
+    public int numJewelsInStones(String J, String S) {
+        Set mySet = new HashSet();
+        int res = 0;
+        char[] j = J.toCharArray();
+        char[] s = S.toCharArray();
+        for(char c:j){
+            mySet.add(c);
+        }
+        for(char ch:s){
+            if(mySet.contains(ch)) res++;
+        }
+        return res;
+    }
+}

@@ -1,0 +1,28 @@
+//iterative solution
+class Solution {
+    public ListNode reverseList(ListNode head) {
+        ListNode pre = null;
+        ListNode curr = head;
+        while(curr != null){
+            ListNode temp = curr.next;
+            curr.next = pre;
+            pre = curr;
+            curr = temp;
+        }
+        return pre;
+    }
+}
+
+//recursive solution
+class Solution {
+    public ListNode reverseList(ListNode head) {
+        if(head == null || head.next == null){
+            return head;
+        }
+        ListNode pre = reverseList(head.next);
+        //head.next.next means the Node(k+1)'s next pointer point to Node(K)
+        head.next.next = head;
+        head.next = null;
+        return pre;
+    }
+}

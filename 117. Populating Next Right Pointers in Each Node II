@@ -1,0 +1,23 @@
+public class Solution {
+    public void connect(TreeLinkNode root) {
+        TreeLinkNode Dummy = new TreeLinkNode(0);
+        TreeLinkNode pointer = Dummy;
+        while(root != null){
+            if(root.left != null){
+                pointer.next = root.left;
+                pointer = pointer.next;
+            }
+            if(root.right != null){
+                pointer.next = root.right;
+                pointer = pointer.next;
+            }
+            root = root.next;
+            if(root == null){
+                pointer = Dummy;
+                root = Dummy.next;
+                Dummy.next = null;
+            }
+        }
+        
+    }          
+}

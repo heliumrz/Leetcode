@@ -1,0 +1,17 @@
+class Solution {
+    public String customSortString(String S, String T) {
+        //count all chars in string T
+        int[] countChar = new int[26];
+        for(char ch : T.toCharArray()) countChar[ch-'a']++;
+        //sort T in order of S
+        StringBuilder res = new StringBuilder();
+        for(char ch : S.toCharArray()) {
+            while(countChar[ch-'a']-- > 0) res.append(ch);
+        }
+        
+        for(char ch = 'a'; ch <= 'z'; ch++){
+            while(countChar[ch-'a']-- > 0) res.append(ch);
+        }
+        return res.toString();
+    }
+}
